@@ -43,6 +43,18 @@ module.exports = {
       }
     ]
   },
+  optimization: {
+    splitChunks: {
+      cacheGroups: {
+        vendor: {
+          test: /react|angluar|lodash|angularjs/,
+          chunks: "initial",
+          name: "vendor",
+          enforce: true
+        }
+      }
+    }
+  },
   plugins: [
     // Injects bundles in your index.html instead of wiring all manually.
     // It also adds hash to all injected assets so we don't have problems
@@ -52,13 +64,14 @@ module.exports = {
       inject: 'body',
       hash: true,
       chunks: ['vendor', 'app']
-    }),
-
-    // Automatically move all modules defined outside of application directory to vendor bundle.
-    // If you are using more complicated project structure, consider to specify common chunks manually.
-    new webpack.optimize.CommonsChunkPlugin({
-      name: "vendor",
-      minChunks: module => /node_modules/.test(module.resource)
     })
+            //,
+
+            // Automatically move all modules defined outside of application directory to vendor bundle.
+            // If you are using more complicated project structure, consider to specify common chunks manually.
+//    new webpack.optimize.CommonsChunkPlugin({
+//      name: "vendor",
+//      minChunks: module => /node_modules/.test(module.resource)
+//    })
   ]
 };
