@@ -1,4 +1,4 @@
-var path    = require('path');
+var path = require('path');
 var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 
@@ -6,11 +6,36 @@ module.exports = {
   devtool: 'source-map',
   entry: {},
   module: {
-    loaders: [
-       { test: /\.js$/, exclude: [/app\/lib/, /node_modules/], loader: 'ng-annotate!babel' },
-       { test: /\.html$/, loader: 'raw' },
-       { test: /\.(scss|sass)$/, loader: 'style!css!sass' },
-       { test: /\.css$/, loader: 'style!css' }
+    rules: [
+      {
+        test: /\.js$/,
+        exclude: [/app\/lib/, /node_modules/],
+        use: [
+          'ng-annotate-loader',
+          'babel-loader'
+        ]
+      },
+      {
+        test: /\.html$/,
+        use: [
+          'raw-loader'
+        ]
+      },
+      {
+        test: /\.(scss|sass)$/,
+        use: [
+          'style-loader',
+          'css-loader',
+          'sass-loader'
+        ]
+      },
+      {
+        test: /\.css$/,
+        use: [
+          'style-loader',
+          'css-loader'
+        ]
+      }
     ]
   },
   plugins: [
