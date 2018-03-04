@@ -1,9 +1,9 @@
 import angular from 'angular';
-import uiRouter from 'angular-ui-router';
+import uirouter from '@uirouter/angularjs';
 import homeComponent from './home.component';
 
 let homeModule = angular.module('home', [
-  uiRouter
+  uirouter
 ])
 
 .config(($stateProvider, $urlRouterProvider) => {

@@ -1,9 +1,9 @@
 import angular from 'angular';
-import uiRouter from 'angular-ui-router';
+import uirouter from '@uirouter/angularjs';
 import navbarComponent from './navbar.component';
 
 let navbarModule = angular.module('navbar', [
-  uiRouter
+  uirouter
 ])
 
 .component('navbar', navbarComponent)

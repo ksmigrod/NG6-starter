@@ -1,9 +1,9 @@
 import angular from 'angular';
-import uiRouter from 'angular-ui-router';
+import uirouter from '@uirouter/angularjs';
 import heroComponent from './hero.component';
 
 let heroModule = angular.module('hero', [
-  uiRouter
+  uirouter
 ])
 
 .component('hero', heroComponent)
